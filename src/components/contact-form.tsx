@@ -10,6 +10,11 @@ export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const [feedback, setFeedback] = useState("");
 
+  function keepPhoneDigits(event: FormEvent<HTMLInputElement>) {
+    const input = event.currentTarget;
+    input.value = input.value.replace(/[^0-9]/g, "");
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -56,15 +61,19 @@ export function ContactForm() {
       <h3 className="form-heading">Send a message</h3>
       <div className="form-field">
         <label htmlFor="contact-name">Name <span aria-hidden="true">*</span></label>
-        <input id="contact-name" name="name" autoComplete="name" placeholder="Your name" required />
+        <input id="contact-name" name="name" autoComplete="name" placeholder="Your Name" required />
       </div>
       <div className="form-field">
         <label htmlFor="contact-email">Email <span aria-hidden="true">*</span></label>
-        <input id="contact-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
+        <input id="contact-email" name="email" type="email" autoComplete="email" placeholder="your@email.com" required />
+      </div>
+      <div className="form-field">
+        <label htmlFor="contact-phone">Phone number (optional)</label>
+        <input id="contact-phone" name="phone" type="tel" inputMode="numeric" autoComplete="tel" pattern="[0-9]*" placeholder="(123) 456-7890" onInput={keepPhoneDigits} />
       </div>
       <div className="form-field">
         <label htmlFor="contact-message">Message <span aria-hidden="true">*</span></label>
-        <textarea id="contact-message" name="message" rows={5} placeholder="What would you like to build?" required />
+        <textarea id="contact-message" name="message" rows={5} placeholder="Any inquiries on building digital products, collaborations, or job opportunities for me?" required />
       </div>
       <input className="bot-field" type="checkbox" name="botcheck" tabIndex={-1} aria-hidden="true" style={{ display: "none" }} />
       <button className="button button-primary form-submit" type="submit" disabled={state === "sending"}>

@@ -22,7 +22,8 @@ To make the static Pages build locally, run `npm.cmd run build`. Next.js writes 
 Edit `src/data/portfolio.ts`:
 
 - Add your email address.
-- Confirm the GitHub and LinkedIn profile links and project statuses.
+- Confirm the GitHub and LinkedIn profile links, and add your Instagram, TikTok, YouTube, and Stack Overflow profile URLs. Unset profiles are omitted from the Contact section.
+- Confirm project statuses.
 - Update the project summaries and detail content as the work changes. Each Selected Work card opens its own page at `/work/<project-id>/`.
 - Add each live website URL and App Store link when ready. Missing links are omitted.
 - Put your PDF at `public/Isaiah-Resume.pdf`, then set `resumeHref` to `/Isaiah-Resume.pdf`.

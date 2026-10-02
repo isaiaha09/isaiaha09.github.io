@@ -95,9 +95,11 @@ Use a solid blue button for the primary action and a dark outlined button for th
 
 The sticky top navigation keeps Work, About, Resume, and Contact on every route. Each Selected Work card opens one project page; the header does not list individual projects. A return link on the project page leads back to Selected Work. Paired projects show their website and iOS app together on one page. Live destination links sit on the project page, while unavailable links are omitted. Status and technology remain textual and readable at narrow widths.
 
+Contact methods use consistent labeled rows in the Contact section. Show only configured social destinations, while the email row can explain when an address has not been provided.
+
 ### Forms and overlays
 
-Contact fields have visible labels, a dark field surface, and inline success or error feedback. Preserve entered values on a failed send. There are no dialogs, drawers, or toast overlays in this portfolio.
+Contact fields have visible labels, a dark field surface, and inline success or error feedback. The optional phone field accepts digits only. Preserve entered values on a failed send. There are no dialogs, drawers, or toast overlays in this portfolio.
 
 ### Iconography
 

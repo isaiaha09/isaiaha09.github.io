@@ -4,6 +4,8 @@ import { ProjectCard } from "@/components/project-card";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { portfolio, profile, projects } from "@/data/portfolio";
 
+type SocialType = "email" | "github" | "linkedin" | "instagram" | "tiktok" | "youtube" | "stack-overflow";
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 20 20" aria-hidden="true">
@@ -12,7 +14,7 @@ function ArrowIcon() {
   );
 }
 
-function SocialMark({ type }: { type: "email" | "github" | "linkedin" }) {
+function SocialMark({ type }: { type: SocialType }) {
   if (type === "github") {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
@@ -22,6 +24,38 @@ function SocialMark({ type }: { type: "email" | "github" | "linkedin" }) {
   }
   if (type === "linkedin") {
     return <span className="linkedin-mark" aria-hidden="true">in</span>;
+  }
+  if (type === "instagram") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (type === "tiktok") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <path d="M14 3v11.2a4.5 4.5 0 1 1-4.5-4.5" />
+        <path d="M14 3c.7 2.7 2.5 4.2 5.5 4.5" />
+      </svg>
+    );
+  }
+  if (type === "youtube") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
+        <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (type === "stack-overflow") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+        <path d="M5 16v4h14v-4M8 17h8.5M8.5 14l8.2 1.5M9.7 11l7.5 3M12 7.5l6 4.5" />
+      </svg>
+    );
   }
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
@@ -39,7 +73,7 @@ function ContactLink({
 }: {
   label: string;
   href?: string;
-  type: "email" | "github" | "linkedin";
+  type: SocialType;
   detail?: string;
 }) {
   return (
@@ -64,9 +98,13 @@ export default function HomePage() {
   const standaloneProjects = projects.filter((project) => project.kind === "standalone-web");
   const websiteCount = projects.length;
   const contactLinks = [
-    { label: portfolio.email || "Email", href: portfolio.email ? `mailto:${portfolio.email}` : undefined, detail: portfolio.email ? undefined : "Address needed", type: "email" as const },
+    { label: "Email", href: portfolio.email ? `mailto:${portfolio.email}` : undefined, detail: portfolio.email ? undefined : "Address needed", type: "email" as const },
     ...(portfolio.github ? [{ label: "GitHub", href: portfolio.github, type: "github" as const }] : []),
     { label: "LinkedIn", href: portfolio.linkedin || undefined, detail: portfolio.linkedin ? undefined : "Profile needed", type: "linkedin" as const },
+    ...(portfolio.instagram ? [{ label: "Instagram", href: portfolio.instagram, type: "instagram" as const }] : []),
+    ...(portfolio.tiktok ? [{ label: "TikTok", href: portfolio.tiktok, type: "tiktok" as const }] : []),
+    ...(portfolio.youtube ? [{ label: "YouTube", href: portfolio.youtube, type: "youtube" as const }] : []),
+    ...(portfolio.stackOverflow ? [{ label: "Stack Overflow", href: portfolio.stackOverflow, type: "stack-overflow" as const }] : []),
   ];
   const resumeHref = portfolio.resumeHref;
 
@@ -155,7 +193,7 @@ export default function HomePage() {
           <div className="contact-layout">
             <div className="contact-details">
               <h3>Get in touch</h3>
-              <p>Reach out directly or find me on GitHub and LinkedIn.</p>
+              <p>Reach out directly or find me on other platforms.</p>
               <div className="social-list">
                 {contactLinks.map((link) => <ContactLink key={link.type} {...link} />)}
               </div>
