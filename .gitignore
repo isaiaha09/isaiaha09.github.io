@@ -1,0 +1,9 @@
+node_modules/
+.next/
+/out/
+.pw-runtime/
+.env*
+!.env.example
+*.tsbuildinfo
+Thumbs.db
+.env
