@@ -93,7 +93,7 @@ Use a solid blue button for the primary action and a dark outlined button for th
 
 ### Navigation and data display
 
-The sticky top navigation keeps Work, About, Resume, and Contact on every route. Each Selected Work card opens one project page; the header does not list individual projects. A return link on the project page leads back to Selected Work. Paired projects show their website and iOS app together on one page. Live destination links sit on the project page, while unavailable links are omitted. Status and technology remain textual and readable at narrow widths.
+The sticky top navigation keeps Work, About, Resume, and Contact on every route. Section links scroll without putting a fragment in the address bar; their anchor targets remain usable when JavaScript is unavailable or someone opens a direct section link. Each Selected Work card opens one project page; the header does not list individual projects. A return link on the project page leads back to Selected Work. Paired projects show their website and iOS app together on one page. Live destination links sit on the project page, while unavailable links are omitted. Status and technology remain textual and readable at narrow widths.
 
 Contact methods use consistent labeled rows in the Contact section. Show only configured social destinations, while the email row can explain when an address has not been provided.
 

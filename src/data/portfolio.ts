@@ -33,7 +33,7 @@ export const portfolio = {
   tiktok: "",
   youtube: "https://www.youtube.com/@iasapps-ia",
   stackOverflow: "https://stackoverflow.com/users/33174991/iasapps",
-  resumeHref: "",
+  resumeHref: "/Isaiah-Resume.pdf",
   resumeFileName: "Isaiah-Resume.pdf",
   web3FormsAccessKey: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "",
 };

@@ -121,7 +121,7 @@ export default function HomePage() {
             <div className="hero-actions">
               <a className="button button-primary" href="#work">Explore my work <ArrowIcon /></a>
               {resumeHref ? (
-                <a className="button button-quiet" href={resumeHref} download>{portfolio.resumeFileName}</a>
+                <a className="button button-quiet" href={resumeHref} download={portfolio.resumeFileName}>Download resume</a>
               ) : (
                 <a className="button button-quiet" href="#resume">View resume</a>
               )}
@@ -176,7 +176,7 @@ export default function HomePage() {
               <p>{resumeHref ? "Download my resume for a closer look at my background and experience." : "My resume will be available here soon."}</p>
             </div>
             {resumeHref ? (
-              <a className="button button-primary resume-button" href={resumeHref} download>{portfolio.resumeFileName}<ArrowIcon /></a>
+              <a className="button button-primary resume-button" href={resumeHref} download={portfolio.resumeFileName}>Download resume<ArrowIcon /></a>
             ) : (
               <span className="resume-pending">Resume coming soon</span>
             )}

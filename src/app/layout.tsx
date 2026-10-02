@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { preload } from "react-dom";
+import { CleanSectionUrls } from "@/components/clean-section-urls";
 import { GlassColorMotion } from "@/components/glass-color-motion";
 import { ParticleBackground } from "@/components/particle-background";
 import "./globals.css";
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        <CleanSectionUrls />
         <ParticleBackground />
         <GlassColorMotion />
         {children}
