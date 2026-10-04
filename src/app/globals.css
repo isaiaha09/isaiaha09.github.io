@@ -1069,17 +1069,35 @@ a {
 .about-layout {
   display: grid;
   width: min(100%, var(--about-content));
-  grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  column-gap: 32px;
+  row-gap: 26px;
   align-items: start;
   margin-inline: auto;
 }
 
 .about-story {
-  max-width: 500px;
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 550px;
   color: #abb2bc;
   font-size: 15px;
   line-height: 1.8;
+}
+
+.about-portrait {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+}
+
+.about-portrait-image {
+  object-fit: contain;
+  object-position: center top;
 }
 
 .about-story p {
@@ -1100,6 +1118,8 @@ a {
 }
 
 .focus-panel {
+  grid-column: 1;
+  grid-row: 2;
   width: fit-content;
   max-width: 100%;
   justify-self: start;
@@ -1570,7 +1590,8 @@ a {
   }
 
   .about-layout {
-    gap: 38px;
+    column-gap: 28px;
+    row-gap: 24px;
   }
 
   .contact-layout {
@@ -1606,6 +1627,18 @@ a {
   .about-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 25px;
+  }
+
+  .about-story,
+  .about-portrait,
+  .focus-panel {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .about-portrait {
+    width: min(100%, 320px);
+    justify-self: center;
   }
 }
 

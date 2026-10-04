@@ -162,6 +162,15 @@ export default function HomePage() {
               <p>{profile.approach}</p>
               <div className="about-signature"><strong>{portfolio.name}</strong></div>
             </div>
+            <figure className="about-portrait">
+              <Image
+                src="/isaiah-headshot-transparent.webp"
+                alt="Isaiah smiling in a dark suit"
+                fill
+                sizes="(max-width: 360px) calc(100vw - 32px), 320px"
+                className="about-portrait-image"
+              />
+            </figure>
             <div className="focus-panel glass-surface">
               <h3>What I work on</h3>
               <ul>{profile.focus.map((item) => <li key={item}>{item}</li>)}</ul>
