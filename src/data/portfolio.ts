@@ -18,6 +18,10 @@ export type Project = {
   accent: string;
   siteUrl?: string;
   appUrl?: string;
+  siteVideo?: string;
+  appVideo?: string;
+  sitePoster?: string;
+  appPoster?: string;
   sitePreview: string[];
   appPreview?: string[];
   detail: ProjectDetail;
@@ -43,17 +47,21 @@ export const projects: Project[] = [
     id: "circlecal",
     name: "CircleCal",
     kind: "web-and-ios",
-    status: "In progress",
+    status: "Live",
     summary:
       "A scheduling and booking platform for businesses, with public booking, team operations, and a companion iOS app.",
     stack: ["Django", "React Native", "Expo", "Stripe"],
     logo: "/projects/circlecal.webp",
     accent: "#756df0",
+    siteUrl: "https://circlecal.app/",
+    appUrl: "https://apps.apple.com/ca/app/circlecal/id6758738591",
+    siteVideo: "/projects/circlecal/site.mp4",
+    sitePoster: "/projects/circlecal/poster.jpg",
     sitePreview: ["Services", "Availability", "Bookings"],
     appPreview: ["Today", "Appointments", "Team"],
     detail: {
       overview:
-        "CircleCal brings customer booking and business operations into one system. The Django platform handles public booking and staff workflows, while a React Native companion is being developed for mobile use.",
+        "CircleCal brings customer booking and business operations into one system. The Django platform handles public booking and staff workflows, with a React Native companion available for iPhone.",
       surfaces: [
         {
           title: "Website",
@@ -63,7 +71,7 @@ export const projects: Project[] = [
         {
           title: "iOS app",
           description:
-            "The Expo app is in development, with sign-in and navigation foundations for bringing business workflows to a phone.",
+            "The Expo app brings CircleCal scheduling and business workflows to iPhone.",
         },
       ],
       highlights: [
@@ -135,22 +143,26 @@ export const projects: Project[] = [
     id: "diningdealz",
     name: "DiningDealz",
     kind: "web-and-ios",
-    status: "In progress",
+    status: "Live",
     summary:
       "A local guide to happy hours, food deals, and discounts in Ventura, Oxnard, and Camarillo.",
     stack: ["Next.js", "Django", "React Native", "Expo"],
     logo: "/projects/diningdealz.webp",
     accent: "#fb3d36",
+    siteUrl: "https://diningdealz.com/",
+    appUrl: "https://apps.apple.com/ca/app/diningdealz/id6781421160",
+    siteVideo: "/projects/diningdealz/site.mp4",
+    sitePoster: "/projects/diningdealz/poster.jpg",
     sitePreview: ["Browse deals", "Near Ventura", "Saved places"],
     appPreview: ["Map", "Happy hour", "Nearby"],
     detail: {
       overview:
-        "DiningDealz is being built to make local offers easier to find around Ventura, Oxnard, and Camarillo. The mobile browse experience and Django APIs are further along; the Next.js website is still planned.",
+        "DiningDealz helps people find local offers around Ventura, Oxnard, and Camarillo through its website and mobile app.",
       surfaces: [
         {
           title: "Website",
           description:
-            "A Next.js browser experience is planned for exploring the same local listings and deals. It has not been released yet.",
+            "The Next.js website lets visitors explore local listings and deals from a browser.",
         },
         {
           title: "iOS app",
@@ -181,12 +193,16 @@ export const projects: Project[] = [
     id: "miranda-insights",
     name: "Miranda Insights",
     kind: "web-and-ios",
-    status: "In progress",
+    status: "Live",
     summary:
       "A consulting and education website with a mobile companion built around the existing web experience.",
     stack: ["Django", "Tailwind CSS", "Expo", "WebView"],
     logo: "/projects/miranda-insights.webp",
     accent: "#d29a36",
+    siteUrl: "https://mirandainsights.com/",
+    appUrl: "https://apps.apple.com/ca/app/miranda-insights-mobile/id6762920274",
+    siteVideo: "/projects/miranda-insights/site.mp4",
+    sitePoster: "/projects/miranda-insights/poster.jpg",
     sitePreview: ["Services", "Resources", "Get started"],
     appPreview: ["Explore", "Resources", "Profile"],
     detail: {
@@ -234,6 +250,8 @@ export const projects: Project[] = [
     logo: "/projects/developmental-baseball.png",
     accent: "#c9ad7b",
     siteUrl: "https://coachalvarez44.com/",
+    siteVideo: "/projects/developmental-baseball/site.mp4",
+    sitePoster: "/projects/developmental-baseball/poster.jpg",
     sitePreview: ["Baseball lessons", "Coaching", "Book a lesson"],
     detail: {
       overview:
@@ -275,6 +293,8 @@ export const projects: Project[] = [
     logo: "/projects/jptraining.png",
     accent: "#7479b5",
     siteUrl: "https://jptvt.com/",
+    siteVideo: "/projects/jptraining/site.mp4",
+    sitePoster: "/projects/jptraining/poster.jpg",
     sitePreview: ["Train with JP", "Strength", "Book a session"],
     detail: {
       overview:

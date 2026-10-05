@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 </div>
               ) : null}
             </div>
-            <div className="detail-visual"><ProjectPreview project={project} /></div>
+            <div className="detail-visual"><ProjectPreview project={project} variant="detail" /></div>
           </div>
         </section>
 

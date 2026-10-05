@@ -490,6 +490,18 @@ a {
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
+.website-window.website-window--detail-video {
+  padding: 0;
+}
+
+.website-detail-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #f5f6f7;
+  object-fit: cover;
+}
+
 .website-topbar {
   display: flex;
   height: 36px;
@@ -601,6 +613,29 @@ a {
   overflow: hidden;
   border-radius: 9px;
   background: color-mix(in srgb, var(--project-accent), white 28%);
+}
+
+.website-art--video {
+  isolation: isolate;
+}
+
+.website-art--video::before,
+.website-art--video::after,
+.website-art--video i {
+  display: none;
+}
+
+.website-art-video {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 1;
+  object-fit: cover;
+  transition: opacity .2s ease;
 }
 
 .website-art::before,
@@ -731,6 +766,22 @@ a {
   border-radius: 5px;
   background: #202329;
   transform: translateX(-50%);
+  z-index: 2;
+}
+
+.phone-screen--video {
+  padding: 0;
+}
+
+.phone-demo-video {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
 }
 
 .phone-screen .preview-logo {
