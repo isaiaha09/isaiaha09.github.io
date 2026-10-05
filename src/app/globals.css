@@ -490,6 +490,11 @@ a {
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
+.project-preview--standalone .website-window {
+  left: 8%;
+  width: 84%;
+}
+
 .website-window.website-window--detail-video {
   padding: 0;
 }
@@ -579,6 +584,10 @@ a {
   gap: 14px;
 }
 
+.project-preview--standalone .website-content {
+  grid-template-columns: minmax(0, .62fr) minmax(0, 1.38fr);
+}
+
 .website-copy {
   min-width: 0;
 }
@@ -613,6 +622,12 @@ a {
   overflow: hidden;
   border-radius: 9px;
   background: color-mix(in srgb, var(--project-accent), white 28%);
+}
+
+.project-preview--standalone .website-art {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .website-art--video {
@@ -712,10 +727,10 @@ a {
   z-index: 2;
   top: 18%;
   right: 7%;
-  width: 21%;
+  width: 19%;
   height: 68%;
-  min-width: 83px;
-  max-width: 118px;
+  min-width: 0;
+  max-width: 170px;
   padding: 5px;
   border: 1px solid #555c66;
   border-radius: 19px;
@@ -1901,12 +1916,51 @@ a {
     height: 22px;
   }
 
+  .project-grid:not(.project-grid--standalone) .project-preview {
+    aspect-ratio: 1.4;
+  }
+
+  .project-grid:not(.project-grid--standalone) .website-window {
+    top: 8%;
+    left: 8%;
+    width: 84%;
+    height: 83%;
+    padding: 10px 12px;
+  }
+
+  .project-grid:not(.project-grid--standalone) .website-topbar {
+    height: 29px;
+  }
+
+  .project-grid:not(.project-grid--standalone) .website-content {
+    height: calc(100% - 51px);
+    gap: 8px;
+    grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr);
+  }
+
+  .project-grid:not(.project-grid--standalone) .website-art {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-grid:not(.project-grid--standalone) .website-footer {
+    height: 22px;
+  }
+
   .phone-device {
     top: 19%;
     right: 6%;
     width: 22%;
     height: 66%;
     min-width: 83px;
+  }
+
+  .project-grid:not(.project-grid--standalone) .phone-device {
+    top: 14%;
+    width: 25%;
+    height: 72%;
+    min-width: 0;
   }
 
   .project-heading-row h3 {

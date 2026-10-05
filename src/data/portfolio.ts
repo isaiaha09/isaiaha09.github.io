@@ -57,6 +57,8 @@ export const projects: Project[] = [
     appUrl: "https://apps.apple.com/ca/app/circlecal/id6758738591",
     siteVideo: "/projects/circlecal/site.mp4",
     sitePoster: "/projects/circlecal/poster.jpg",
+    appVideo: "/projects/circlecal/app.mp4",
+    appPoster: "/projects/circlecal/app-poster.jpg",
     sitePreview: ["Services", "Availability", "Bookings"],
     appPreview: ["Today", "Appointments", "Team"],
     detail: {
@@ -153,6 +155,8 @@ export const projects: Project[] = [
     appUrl: "https://apps.apple.com/ca/app/diningdealz/id6781421160",
     siteVideo: "/projects/diningdealz/site.mp4",
     sitePoster: "/projects/diningdealz/poster.jpg",
+    appVideo: "/projects/diningdealz/app.mp4",
+    appPoster: "/projects/diningdealz/app-poster.jpg",
     sitePreview: ["Browse deals", "Near Ventura", "Saved places"],
     appPreview: ["Map", "Happy hour", "Nearby"],
     detail: {
@@ -203,6 +207,8 @@ export const projects: Project[] = [
     appUrl: "https://apps.apple.com/ca/app/miranda-insights-mobile/id6762920274",
     siteVideo: "/projects/miranda-insights/site.mp4",
     sitePoster: "/projects/miranda-insights/poster.jpg",
+    appVideo: "/projects/miranda-insights/app.mp4",
+    appPoster: "/projects/miranda-insights/app-poster.jpg",
     sitePreview: ["Services", "Resources", "Get started"],
     appPreview: ["Explore", "Resources", "Profile"],
     detail: {

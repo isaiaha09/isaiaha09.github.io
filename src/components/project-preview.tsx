@@ -22,7 +22,7 @@ export function ProjectPreview({
 
   return (
     <div
-      className={`project-preview glass-surface project-preview--${project.id}`}
+      className={"project-preview glass-surface project-preview--" + project.id + (project.kind === "standalone-web" ? " project-preview--standalone" : "")}
       style={{ "--project-accent": project.accent } as CSSProperties}
       role={variant === "card" ? "img" : "group"}
       aria-label={`${project.name} ${paired ? "website and iOS app" : "website"} preview`}
