@@ -34,7 +34,7 @@ export const portfolio = {
   github: "https://github.com/isaiaha09",
   linkedin: "https://www.linkedin.com/in/isaiah-a-473355121/",
   instagram: "https://www.instagram.com/_iasapps_/",
-  tiktok: "",
+  tiktok: "https://www.tiktok.com/@_iasapps_",
   youtube: "https://www.youtube.com/@iasapps-ia",
   stackOverflow: "https://stackoverflow.com/users/33174991/iasapps",
   resumeHref: "/Isaiah-Resume.pdf",
