@@ -1,6 +1,6 @@
 import { portfolio } from "@/data/portfolio";
 
-export function SiteHeader({ isHome = false }: { isHome?: boolean }) {
+export function SiteHeader({ isHome = false, currentPage }: { isHome?: boolean; currentPage?: "estimate" }) {
   const homePrefix = isHome ? "" : "/";
 
   return (
@@ -14,6 +14,7 @@ export function SiteHeader({ isHome = false }: { isHome?: boolean }) {
           <a href={`${homePrefix}#about`}>About</a>
           <a href={`${homePrefix}#resume`}>Resume</a>
           <a href={`${homePrefix}#contact`}>Contact</a>
+          <a className="estimate-nav-link" href="/project-estimate/" aria-current={currentPage === "estimate" ? "page" : undefined}>Get an Estimate</a>
         </nav>
       </div>
     </header>

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: "IASAPPS Portfolio"
-description: "A portfolio with selected work, dedicated project pages, and direct contact for Isaiah's web and iOS work."
+description: "A portfolio with selected work, dedicated project pages, project estimates, and direct contact for Isaiah's web and iOS work."
 colors:
   background: "#0b0d10"
   surface: "#13171d"
@@ -14,6 +14,8 @@ colors:
   muted: "#a0a7b1"
   primary: "#1675ff"
   accent: "#4190ff"
+  error: "#ffb6bd"
+  success: "#9de1b8"
 typography:
   sans:
     fontFamily: "Arial, Helvetica, sans-serif"
@@ -93,11 +95,13 @@ Use a solid blue button for the primary action and a dark outlined button for th
 
 ### Navigation and data display
 
-The sticky top navigation keeps Work, About, Resume, and Contact on every route. Section links scroll without putting a fragment in the address bar; their anchor targets remain usable when JavaScript is unavailable or someone opens a direct section link. Each Selected Work card opens one project page; the header does not list individual projects. A return link on the project page leads back to Selected Work. Paired projects show their website and iOS app together on one page. Live destination links sit on the project page, while unavailable links are omitted. Status and technology remain textual and readable at narrow widths.
+The sticky top navigation keeps Work, About, Resume, Contact, and Get an Estimate on every route. On narrow screens the wordmark and wrapping navigation stack, keeping each link readable; the estimate route marks its navigation link as current. The global --site-header-offset token reserves space for sticky UI and anchor focus. Section links scroll without putting a fragment in the address bar; their anchor targets remain usable when JavaScript is unavailable or someone opens a direct section link. Each Selected Work card opens one project page; the header does not list individual projects. A return link on the project page leads back to Selected Work. Paired projects show their website and iOS app together on one page. Live destination links sit on the project page, while unavailable links are omitted. Status and technology remain textual and readable at narrow widths.
 
 Contact methods use consistent labeled rows in the Contact section. Show only configured social destinations, while the email row can explain when an address has not been provided.
 
 ### Forms and overlays
+
+The /project-estimate/ route uses a six-step questionnaire inside a centered 1160px layout, with a 320px live-estimate sidebar on desktop. Below 960px, a compact sticky development range replaces the sidebar. Its measured height sets --estimate-summary-height for focus/scroll offsets, and complete currency endpoints wrap together rather than breaking digits. Displayed price ranges say “to” between endpoints; itemized shared setup deductions are labeled as credits. Website size counts distinct page layouts; application size counts main app screens or connected backend modules. Page and screen counts measure structure, while the feature step covers added behavior. A Contact page layout can be part of the website page count; a working inquiry form is a separate feature. Native radio and checkbox cards expose their range, scoped explanation, selection, keyboard focus, and included status. The estimator darkens the existing primary blue for white-text action fills and active-step marks. Scope, design, and feature ranges come from one typed local catalog. Credits subtract duplicate shared components at matching endpoints. The editable business-website base includes a basic CMS; included CMS/admin/API descriptions identify the limited base version. Large or unknown scope and custom-priced work show a priced-items range with review flags. Urgency alone retains the preliminary-development-range label. Hosting/maintenance preferences are collected for a separate quote, and development-payment preference is optional; neither changes the range. The final step shows an itemized review, editable sections, scope notes, payment/service preferences, the preliminary-estimate disclaimer, and required acknowledgment. The estimator owns inline validation with noValidate, associated errors, first-invalid focus, stable sending controls, and a provider-confirmed success screen. Its textareas auto-grow without manual resize. Drafts remain in page memory, and errors preserve answers. Both inquiry forms use the shared browser-to-Web3Forms helper, a honeypot, a 20-second timeout, and no automatic retries. The estimator inquiry includes formatted and numeric range endpoints, currency, scope notes, credits, and preferences. Shared error and success colors map to --error-text and --success-text in globals.css. Route-specific layout and controls live in project-estimate.css and reuse the global visual tokens.
 
 Contact fields have visible labels, a dark field surface, and inline success or error feedback. The optional phone field accepts digits only. Preserve entered values on a failed send. There are no dialogs, drawers, or toast overlays in this portfolio.
 

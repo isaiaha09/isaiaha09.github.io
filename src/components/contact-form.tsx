@@ -1,14 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { portfolio } from "@/data/portfolio";
+import { submitWeb3Forms } from "@/lib/web3forms";
 
 type FormState = "idle" | "sending" | "success" | "error";
 
 export function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
   const [feedback, setFeedback] = useState("");
+  const sending = useRef(false);
 
   function keepPhoneDigits(event: FormEvent<HTMLInputElement>) {
     const input = event.currentTarget;
@@ -17,6 +19,7 @@ export function ContactForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (sending.current) return;
     const form = event.currentTarget;
     if (!form.reportValidity()) return;
 
@@ -27,25 +30,17 @@ export function ContactForm() {
     }
 
     setState("sending");
+    sending.current = true;
     setFeedback("");
 
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-    payload.access_key = portfolio.web3FormsAccessKey;
+    const payload: Record<string, string | boolean> = Object.fromEntries([...formData.entries()].map(([key, value]) => [key, String(value)]));
+    payload.botcheck = formData.get("botcheck") !== null;
     payload.subject = `Portfolio message from ${String(formData.get("name") ?? "a visitor")}`;
     payload.from_name = "Portfolio contact form";
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await response.json() as { success?: boolean; message?: string };
-
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Your message could not be sent. Please try again.");
-      }
+      await submitWeb3Forms(payload, portfolio.web3FormsAccessKey);
 
       form.reset();
       setState("success");
@@ -53,6 +48,8 @@ export function ContactForm() {
     } catch (error) {
       setState("error");
       setFeedback(error instanceof Error ? error.message : "Your message could not be sent. Please try again.");
+    } finally {
+      sending.current = false;
     }
   }
 
