@@ -32,6 +32,7 @@ export function ParticleBackground() {
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let width = 0;
     let height = 0;
+    let pixelRatio = 0;
     let particles: Particle[] = [];
     let animationFrame = 0;
     let previousFrame = 0;
@@ -150,13 +151,27 @@ export function ParticleBackground() {
     function resize() {
       if (!canvas || !context) return;
 
-      width = window.innerWidth;
-      height = window.innerHeight;
-      const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      const bounds = canvas.getBoundingClientRect();
+      const nextWidth = bounds.width;
+      const nextHeight = bounds.height;
+      const nextPixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+      const widthChanged = Math.abs(nextWidth - width) >= 0.5;
+
+      if (
+        !widthChanged &&
+        Math.abs(nextHeight - height) < 0.5 &&
+        nextPixelRatio === pixelRatio
+      ) {
+        return;
+      }
+
+      width = nextWidth;
+      height = nextHeight;
+      pixelRatio = nextPixelRatio;
       canvas.width = Math.round(width * pixelRatio);
       canvas.height = Math.round(height * pixelRatio);
       context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-      createParticles();
+      if (!particles.length || widthChanged) createParticles();
       draw();
     }
 
